@@ -510,10 +510,7 @@ static CGFloat CHTFloorCGFloat(CGFloat value) {
                             topOfCV,
                             topOfHeader
                             );
-          origin.y = MIN(
-                         top,
-                         lastYToFloatOn
-                         );
+          origin.y = top;
           
           layoutAttributes.zIndex = 1024;
           CGFloat alpha = 1 + (lastYToFloatOn - top) / layoutAttributes.frame.size.height;
