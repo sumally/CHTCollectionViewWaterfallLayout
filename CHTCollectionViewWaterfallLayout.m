@@ -516,7 +516,8 @@ static CGFloat CHTFloorCGFloat(CGFloat value) {
                          );
           
           layoutAttributes.zIndex = 1024;
-           layoutAttributes.alpha = 1 + (lastYToFloatOn - top) / layoutAttributes.frame.size.height;
+          CGFloat alpha = 1 + (lastYToFloatOn - top) / layoutAttributes.frame.size.height;
+          layoutAttributes.alpha = MIN(10, MAX(0, alpha));
           layoutAttributes.frame = CGRectMake(0, origin.y, layoutAttributes.frame.size.width, layoutAttributes.frame.size.height);
         }
       }
