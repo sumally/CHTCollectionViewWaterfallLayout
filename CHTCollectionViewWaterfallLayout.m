@@ -506,16 +506,17 @@ static CGFloat CHTFloorCGFloat(CGFloat value) {
           
           CGFloat lastYToFloatOn = (CGRectGetMaxY(lastObjectAttrs.frame) - bottomHeaderHeight);
           
-          
+          CGFloat top = MAX(
+                            topOfCV,
+                            topOfHeader
+                            );
           origin.y = MIN(
-                         MAX(
-                             topOfCV,
-                             topOfHeader
-                             ),
+                         top,
                          lastYToFloatOn
-                         )  ;
+                         );
           
           layoutAttributes.zIndex = 1024;
+           layoutAttributes.alpha = 1 + (lastYToFloatOn - top) / layoutAttributes.frame.size.height;
           layoutAttributes.frame = CGRectMake(0, origin.y, layoutAttributes.frame.size.width, layoutAttributes.frame.size.height);
         }
       }
